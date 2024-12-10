@@ -7,7 +7,6 @@ sudo apt-get update && sudo apt-get install -y --no-install-recommends \
     libpixman-1-dev\
     zlib1g-dev \
     ninja-build \
-    git-email \
     libaio-dev libbluetooth-dev libcapstone-dev libbrlapi-dev libbz2-dev \
     libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev \
     libibverbs-dev libjpeg8-dev libncurses5-dev libnuma-dev \
