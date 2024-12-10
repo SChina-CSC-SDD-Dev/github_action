@@ -21,18 +21,9 @@ sudo apt-get update && sudo apt-get install -y --no-install-recommends \
     gcc \
     vim
 
-# check env.
-if [ ! -r /.dockerenv ]; then
-  echo "Usage  : $0 must run inside docker!"
-  exit 1
-fi
+git clone https://github.com/espressif/qemu.git
 
-if [ -d /qemu ]; then
-  cd /qemu
-else
-  echo "qemu is not mounted in docker!"
-  exit 1
-fi
+cd qemu
 
 ./configure --target-list=xtensa-softmmu \
   --enable-gcrypt \
