@@ -35,3 +35,5 @@ cd qemu
   --disable-gtk
 
 ninja -C build
+
+ls -lt build
