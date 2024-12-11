@@ -36,4 +36,4 @@ cd qemu
 
 ninja -C build
 
-ls -lt build
+ls -l build
