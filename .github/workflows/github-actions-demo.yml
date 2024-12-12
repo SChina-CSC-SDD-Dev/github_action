@@ -33,6 +33,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: espressif/qemu.git
+          branch: esp-develop
           path: qemu
           
       - name: Check out the repository to the runner
