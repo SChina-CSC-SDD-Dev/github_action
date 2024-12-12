@@ -53,6 +53,27 @@ jobs:
           cd qemu
           ninja -C build
           ls build
+
+      - name: Create GitHub App token for SSS-owned repositories
+        uses: actions/create-github-app-token@v1
+        id: sss-app-token
+        with:
+          app-id: ${{ secrets.AITRIOS_SDK_DEVICE_BUILD_FW_APP_ID }}
+          private-key: ${{ secrets.AITRIOS_SDK_DEVICE_BUILD_FW_PRIV_KEY }}
+          owner: SonySemiconductorSolutions
+
+      - name: Create GitHub App token for Midokura-owned repositories
+        uses: actions/create-github-app-token@v1
+        id: mido-app-token
+        with:
+          app-id: ${{ secrets.AITRIOS_SDK_DEVICE_BUILD_FW_APP_ID }}
+          private-key: ${{ secrets.AITRIOS_SDK_DEVICE_BUILD_FW_PRIV_KEY }}
+          owner: midokura
           
-      - name: Check out the repository to the runner
-        uses: actions/checkout@v4  
+      - name: Build Nuttx
+        uses: SonySemiconductorSolutions/aitrios-sdk-device-build-nuttx-esp32/.github/actions/build@develop
+        id: build
+        with:
+          sss_token: ${{ steps.sss-app-token.outputs.token }}
+          mido_token: ${{ steps.mido-app-token.outputs.token }}
+          device_type: T3P
