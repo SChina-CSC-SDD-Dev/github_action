@@ -32,7 +32,7 @@ jobs:
       - name: Clone Qemu
         uses: actions/checkout@v4
         with:
-          repository: espressif/qemu.git
+          repository: espressif/qemu
           branch: esp-develop
           path: qemu
           
