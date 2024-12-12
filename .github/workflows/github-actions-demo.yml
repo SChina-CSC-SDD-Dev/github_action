@@ -28,6 +28,12 @@ jobs:
             pip \
             gcc \
             vim
-            
+
+      - name: Clone Qemu
+        uses: actions/checkout@v4
+        with:
+          repository: espressif/qemu.git
+          path: qemu
+          
       - name: Check out the repository to the runner
         uses: actions/checkout@v4  
